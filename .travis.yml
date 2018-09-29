@@ -25,4 +25,8 @@ notifications:
 
 env:
   global:
+<<<<<<< HEAD:.travis.yaml
     - LANG="en_US.UTF-8"
+=======
+- LANG="en_US.UTF-8"
+>>>>>>> 52ad10f6248ae2ba5ad516444e7ff20d88fc4f6f:.travis.yml
