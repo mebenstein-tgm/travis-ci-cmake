@@ -2,9 +2,9 @@ language: cpp
 sudo: false
 dist: trusty
 compiler:
-- g++
+  - g++
 os:
-- linux
+  - linux
 
 addons:
     apt:
@@ -15,18 +15,9 @@ addons:
 
 branches:
   only:
-  - master
+   - master
 
 script: ./build.sh
-
-after_success:
-    # Creating report
-  - cd ${TRAVIS_BUILD_DIR}
-  - lcov --directory . --capture --output-file coverage.info # capture coverage info
-  - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
-  - lcov --list coverage.info #debug info
-  # Uploading report to CodeCov
-  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
 
 notifications:
   email:
@@ -34,4 +25,4 @@ notifications:
 
 env:
   global:
-- LANG="en_US.UTF-8"
+    - LANG="en_US.UTF-8"
